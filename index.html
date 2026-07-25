@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cape Town, Summer 2026 — A study-abroad case study with GRIT</title>
+  <meta name="description" content="Six weeks in Cape Town building a financial-tracking web app for GRIT (Gender Rights in Tech). Project overview, walkthrough, reflection, and a six-week ledger of lessons." />
+
+  <!-- Fonts: Space Grotesk (display), Newsreader (reflection prose), JetBrains Mono (data/labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to content</a>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="#top">
+        <span class="nav__mark" aria-hidden="true">/</span>
+        <span class="nav__name">Shreya Shanmugam</span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#overview">Overview</a>
+        <a href="#project">Project</a>
+        <a href="#walkthrough">Walkthrough</a>
+        <a href="#reflection">Reflection</a>
+        <a href="#ledger">Ledger</a>
+        <a href="#gallery">Photos</a>
+      </nav>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav__mobile" id="mobileNav" aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#project">Project</a>
+      <a href="#walkthrough">Walkthrough</a>
+      <a href="#reflection">Reflection</a>
+      <a href="#ledger">Ledger</a>
+      <a href="#gallery">Photos</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">Study-abroad case study <span class="dot">·</span> Cape Town, South Africa</p>
+          <h1 class="hero__title">
+            Six weeks turning GRIT&rsquo;s finances into something they could <em>see</em>.
+          </h1>
+          <p class="hero__dek">
+            A summer building a financial-tracking web app for <strong>GRIT — Gender Rights in Tech</strong>,
+            and learning what engineering looks like in the service of a mission.
+          </p>
+
+          <dl class="hero__meta">
+            <div><dt>Role</dt><dd>Frontend Developer</dd></div>
+            <div><dt>Duration</dt><dd>6 weeks · Summer 2026</dd></div>
+            <div><dt>Partner</dt><dd>GRIT · EDU Africa</dd></div>
+            <div><dt>Stack</dt><dd>React + database</dd></div>
+          </dl>
+
+          <div class="hero__cta">
+            <a class="btn btn--solid" href="#project">See the project</a>
+            <a class="btn btn--ghost" href="#reflection">Read the reflection</a>
+          </div>
+        </div>
+
+        <!-- Hero visual: swap the <img> src for a real photo (photos/hero.jpg).
+             Until then a dashboard motif renders as a graceful placeholder. -->
+        <figure class="hero__visual reveal">
+          <div class="frame">
+            <img class="frame__img" src="photos/hero.jpg" alt="Cape Town, summer 2026" data-fallback loading="eager" />
+            <div class="frame__placeholder" aria-hidden="true">
+              <div class="mockboard">
+                <div class="mockboard__bar">
+                  <span></span><span></span><span></span>
+                  <em>grit-finance</em>
+                </div>
+                <div class="mockboard__row">
+                  <div class="stat"><small>Total funds</small><b>R 482,900</b></div>
+                  <div class="stat"><small>Active grants</small><b>7</b></div>
+                </div>
+                <svg class="mockboard__chart" viewBox="0 0 320 120" preserveAspectRatio="none" aria-hidden="true">
+                  <polyline points="0,96 40,84 80,88 120,60 160,66 200,40 240,48 280,24 320,30" />
+                  <polygon points="0,96 40,84 80,88 120,60 160,66 200,40 240,48 280,24 320,30 320,120 0,120" />
+                </svg>
+                <div class="mockboard__bars">
+                  <i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i>
+                  <i style="--h:85%"></i><i style="--h:62%"></i><i style="--h:95%"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="frame__cap">Add <code>photos/hero.jpg</code> to replace this motif.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== OVERVIEW ===================== -->
+    <section class="section" id="overview">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__num">01</span>
+          <h2 class="sec-head__title">Overview</h2>
+          <p class="sec-head__lead">
+            What the trip was, who I worked with, and the problem we set out to solve.
+          </p>
+        </header>
+
+        <div class="prose reveal">
+          <p>
+            For six weeks in the summer of 2026 I lived and worked in <strong>Cape Town, South Africa</strong>
+            as part of a study-abroad program that pairs student engineers with local
+            organizations doing real work. My placement was with
+            <strong>GRIT — Gender Rights in Tech</strong>, a Cape Town nonprofit that opens doors to
+            technology careers for women and gender-diverse people.
+          </p>
+          <p>
+            GRIT runs on grants, donations, and a small, fiercely committed team. Their finances lived
+            across spreadsheets and inboxes — accurate, but hard to see all at once. When a funder asked
+            &ldquo;where did this money go?&rdquo; the answer took hours to assemble. Our brief was simple to
+            say and hard to do well: give GRIT a single place to <strong>see their money</strong> — grants
+            coming in, budgets spent, and reports they could hand to funders without dread.
+          </p>
+          <p>
+            Over the program we designed and built a <strong>financial-tracking web application</strong> in
+            React, backed by a database, with dashboards and charts, grant and donor tracking, and budgets
+            and reports. This page is the case study: the project, a walkthrough of what we shipped, an
+            honest reflection, and a week-by-week ledger of what I learned.
+          </p>
+        </div>
+
+        <ul class="stats reveal" aria-label="At a glance">
+          <li class="stat-card">
+            <span class="stat-card__num" data-count="6">6</span>
+            <span class="stat-card__label">weeks in Cape Town</span>
+          </li>
+          <li class="stat-card">
+            <span class="stat-card__num" data-count="1">1</span>
+            <span class="stat-card__label">NGO partner · GRIT</span>
+          </li>
+          <li class="stat-card">
+            <span class="stat-card__num" data-count="3">3</span>
+            <span class="stat-card__label">core features shipped</span>
+          </li>
+          <li class="stat-card">
+            <span class="stat-card__num" data-count="8000" data-suffix="+">0</span>
+            <span class="stat-card__label">km from home</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECT ===================== -->
+    <section class="section section--dark" id="project">
+      <div class="wrap">
+        <header class="sec-head sec-head--onDark reveal">
+          <span class="sec-head__num">02</span>
+          <h2 class="sec-head__title">The project</h2>
+          <p class="sec-head__lead">
+            A financial-tracking web app for GRIT — built in React, backed by a database.
+          </p>
+        </header>
+
+        <div class="split reveal">
+          <div class="split__text">
+            <h3 class="h3">The problem</h3>
+            <p>
+              GRIT&rsquo;s funding came from many sources with many rules. Tracking it in spreadsheets meant the
+              full picture only existed in someone&rsquo;s head. Reporting to funders was slow, and it was hard to
+              answer basic questions: how much of this grant is left? Which budgets are overspent? What did we
+              raise this quarter?
+            </p>
+            <h3 class="h3">What we built</h3>
+            <p>
+              A single, secure web app where the team logs funds once and sees everything update — totals,
+              trends, and per-grant balances — with reports they can export and send.
+            </p>
+          </div>
+
+          <ul class="features">
+            <li class="feature">
+              <span class="feature__ix" aria-hidden="true">01</span>
+              <h4>Dashboards &amp; charts</h4>
+              <p>An at-a-glance view of funds in and out, balances, and trends over time — so the whole team reads the same numbers.</p>
+            </li>
+            <li class="feature">
+              <span class="feature__ix" aria-hidden="true">02</span>
+              <h4>Grant &amp; donor tracking</h4>
+              <p>Every grant and donor as a first-class record: amount, purpose, and how much remains — no more hunting across tabs.</p>
+            </li>
+            <li class="feature">
+              <span class="feature__ix" aria-hidden="true">03</span>
+              <h4>Budgets &amp; reports</h4>
+              <p>Set budgets, watch them against real spend, and export clean reports built for the questions funders actually ask.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="stack-strip reveal" aria-label="Built with">
+          <span class="stack-strip__label">Built with</span>
+          <ul>
+            <li>React</li>
+            <li>JavaScript</li>
+            <li><span data-edit>Database</span></li>
+            <li>Charting</li>
+            <li>Responsive UI</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WALKTHROUGH ===================== -->
+    <section class="section" id="walkthrough">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__num">03</span>
+          <h2 class="sec-head__title">Walkthrough</h2>
+          <p class="sec-head__lead">
+            A guided tour of the app we shipped. Drop screenshots into <code>photos/</code> to bring each step to life.
+          </p>
+        </header>
+
+        <ol class="walk">
+          <li class="walk__step reveal">
+            <div class="walk__media">
+              <img src="photos/app-01-signin.jpg" alt="Sign-in screen of the GRIT finance app" data-fallback loading="lazy" />
+              <span class="shot-ph" aria-hidden="true">app-01-signin.jpg</span>
+            </div>
+            <div class="walk__body">
+              <span class="walk__ix">Step 01</span>
+              <h3>Secure sign-in</h3>
+              <p>Finances are sensitive, so the app opens behind a login. Team members sign in to their own workspace — the data never lives in a shared spreadsheet link again.</p>
+            </div>
+          </li>
+
+          <li class="walk__step reveal">
+            <div class="walk__media">
+              <img src="photos/app-02-dashboard.jpg" alt="Dashboard with charts and totals" data-fallback loading="lazy" />
+              <span class="shot-ph" aria-hidden="true">app-02-dashboard.jpg</span>
+            </div>
+            <div class="walk__body">
+              <span class="walk__ix">Step 02</span>
+              <h3>The dashboard</h3>
+              <p>Landing here, the team sees total funds, active grants, and spend trends rendered as charts. The numbers that used to take an afternoon to assemble are the first thing you see.</p>
+            </div>
+          </li>
+
+          <li class="walk__step reveal">
+            <div class="walk__media">
+              <img src="photos/app-03-record.jpg" alt="Recording a transaction" data-fallback loading="lazy" />
+              <span class="shot-ph" aria-hidden="true">app-03-record.jpg</span>
+            </div>
+            <div class="walk__body">
+              <span class="walk__ix">Step 03</span>
+              <h3>Log funds once</h3>
+              <p>Income and expenses are entered once and categorized. Every dashboard, balance, and report updates from that single source of truth — no double entry, no drift between tabs.</p>
+            </div>
+          </li>
+
+          <li class="walk__step reveal">
+            <div class="walk__media">
+              <img src="photos/app-04-grants.jpg" alt="Grant and donor tracking view" data-fallback loading="lazy" />
+              <span class="shot-ph" aria-hidden="true">app-04-grants.jpg</span>
+            </div>
+            <div class="walk__body">
+              <span class="walk__ix">Step 04</span>
+              <h3>Track grants &amp; donors</h3>
+              <p>Each funding source is its own record with a running balance. At a glance the team can see what a grant was for and exactly how much of it is left to spend.</p>
+            </div>
+          </li>
+
+          <li class="walk__step reveal">
+            <div class="walk__media">
+              <img src="photos/app-05-reports.jpg" alt="Budgets and exported report" data-fallback loading="lazy" />
+              <span class="shot-ph" aria-hidden="true">app-05-reports.jpg</span>
+            </div>
+            <div class="walk__body">
+              <span class="walk__ix">Step 05</span>
+              <h3>Budgets &amp; reports</h3>
+              <p>Budgets sit next to real spend, so overspending shows up early. When a funder asks for an accounting, a clean report is a few clicks away instead of a lost afternoon.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== REFLECTION ===================== -->
+    <section class="section section--paper" id="reflection">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__num">04</span>
+          <h2 class="sec-head__title">Reflection</h2>
+          <p class="sec-head__lead">The honest version — what changed in how I think about building software.</p>
+        </header>
+
+        <div class="reflect reveal">
+          <p class="reflect__lead">
+            I arrived thinking the hard part would be the code. It wasn&rsquo;t.
+          </p>
+          <p>
+            The hard part was understanding a problem that wasn&rsquo;t mine — sitting with GRIT&rsquo;s team,
+            hearing how they actually worked, and resisting the urge to build the app I imagined instead of the
+            one they needed. The best hour I spent some weeks wasn&rsquo;t writing React; it was watching someone
+            reconcile a grant by hand and finally understanding why the &ldquo;obvious&rdquo; feature I&rsquo;d
+            sketched would have made their week harder, not easier.
+          </p>
+          <p>
+            Building for a nonprofit sharpened every engineering instinct. There was no room for a tool that only
+            I could maintain, so I learned to write for the person who would inherit it. Constraints — a small
+            team, limited time, real money on the line — turned out to be a gift. They forced clarity about what
+            actually mattered: that the numbers were trustworthy, that the team could use it without me in the
+            room, and that a funder&rsquo;s question could be answered in minutes.
+          </p>
+          <p>
+            Cape Town taught the rest. Working across a different context, culture, and set of assumptions made me
+            a more careful listener and a humbler builder. I came home with a finished app I&rsquo;m proud of — and
+            with a clearer sense that the point of the skill is what you do with it and who it&rsquo;s for.
+          </p>
+          <p class="reflect__sign">— Shreya, Cape Town, Summer 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LEDGER (signature) ===================== -->
+    <section class="section section--dark" id="ledger">
+      <div class="wrap">
+        <header class="sec-head sec-head--onDark reveal">
+          <span class="sec-head__num">05</span>
+          <h2 class="sec-head__title">The six-week ledger</h2>
+          <p class="sec-head__lead">
+            We built a tool to track what GRIT gained each month. Here&rsquo;s what I gained each week —
+            entered like statement lines.
+          </p>
+        </header>
+
+        <div class="ledger reveal">
+          <div class="ledger__head" aria-hidden="true">
+            <span>Wk</span>
+            <span>Focus</span>
+            <span>Lesson gained</span>
+          </div>
+
+          <div class="ledger__row">
+            <span class="ledger__wk">01</span>
+            <span class="ledger__focus">Arrival &amp; orientation</span>
+            <span class="ledger__lesson">Listen before you build. Week one was GRIT&rsquo;s story, not my roadmap — the problem is never the one on the brief until you&rsquo;ve heard it in their words.</span>
+          </div>
+          <div class="ledger__row">
+            <span class="ledger__wk">02</span>
+            <span class="ledger__focus">Discovery &amp; scoping</span>
+            <span class="ledger__lesson">Requirements are a conversation. Shadowing the team turned a vague &ldquo;track our finances&rdquo; into concrete, buildable features — and cut the ones nobody needed.</span>
+          </div>
+          <div class="ledger__row">
+            <span class="ledger__wk">03</span>
+            <span class="ledger__focus">Architecture &amp; data model</span>
+            <span class="ledger__lesson">Design the data first. Getting grants, budgets, and transactions right on paper made every React component afterward almost fall into place.</span>
+          </div>
+          <div class="ledger__row">
+            <span class="ledger__wk">04</span>
+            <span class="ledger__focus">Dashboards &amp; charts</span>
+            <span class="ledger__lesson">A chart is an argument. Turning rows of numbers into a view the team could read in seconds taught me that clarity is a feature, not a finish.</span>
+          </div>
+          <div class="ledger__row">
+            <span class="ledger__wk">05</span>
+            <span class="ledger__focus">Grants, budgets &amp; feedback</span>
+            <span class="ledger__lesson">Ship, then listen again. The first version I demoed was wrong in small, important ways — real feedback made the second version actually theirs.</span>
+          </div>
+          <div class="ledger__row">
+            <span class="ledger__wk">06</span>
+            <span class="ledger__focus">Handoff &amp; farewell</span>
+            <span class="ledger__lesson">Done means someone else can run it. Documentation and a clean handoff mattered as much as the code — a tool only helps if it outlives the builder.</span>
+          </div>
+
+          <div class="ledger__foot">
+            <span class="ledger__wk">Σ</span>
+            <span class="ledger__focus">Six weeks</span>
+            <span class="ledger__lesson">Engineering in service of a mission — carried home.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section class="section" id="gallery">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <span class="sec-head__num">06</span>
+          <h2 class="sec-head__title">Photos</h2>
+          <p class="sec-head__lead">
+            Moments from six weeks in Cape Town. Drop images into <code>photos/</code> as
+            <code>photo-01.jpg</code>, <code>photo-02.jpg</code>… and they&rsquo;ll appear here.
+          </p>
+        </header>
+
+        <div class="gallery reveal" id="galleryGrid">
+          <!-- Tiles are generated from photos/photo-01.jpg … in script.js.
+               Missing files show a labelled placeholder instead of a broken image. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ACKNOWLEDGEMENTS ===================== -->
+    <section class="section section--thanks" id="thanks">
+      <div class="wrap">
+        <div class="thanks reveal">
+          <p class="thanks__kicker">With gratitude</p>
+          <p class="thanks__body">
+            Special thanks to <strong>Dr. Sanethia Thomas</strong>, <strong>Ping Neo</strong>,
+            <strong>Naomi Harrell</strong>, <strong>EDU Africa</strong>, and <strong>Housing Assembly</strong> —
+            for the guidance, the welcome, and the chance to build something that matters.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span class="footer__name">Shreya Shanmugam</span>
+      <span class="footer__meta">Cape Town · Summer 2026 · Study-abroad case study</span>
+      <a class="footer__top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" aria-label="Close">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">‹</button>
+    <img class="lightbox__img" src="" alt="" />
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next">›</button>
+    <p class="lightbox__cap"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
