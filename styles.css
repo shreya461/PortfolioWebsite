@@ -145,6 +145,9 @@ h1,h2,h3,h4 { font-family: var(--display); font-weight: 600; line-height: 1.05; 
 }
 .frame__img { width: 100%; height: 100%; object-fit: cover; }
 .frame__img.is-missing { display: none; }
+/* when a real hero image loads, show it in full — no crop */
+.frame:has(.frame__img:not(.is-missing)) { aspect-ratio: auto; background: var(--surface); }
+.frame:has(.frame__img:not(.is-missing)) .frame__img { height: auto; object-fit: contain; }
 .frame__placeholder { position: absolute; inset: 0; display: grid; place-items: center; padding: 22px; }
 /* when a real hero photo loads, drop the motif + helper caption */
 .hero__visual:has(.frame__img:not(.is-missing)) .frame__placeholder,
