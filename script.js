@@ -9,7 +9,25 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- how many gallery photos to look for ---------- */
-  var PHOTO_COUNT = 12; // photos/photo-01.jpg … photo-12.jpg
+  var PHOTO_COUNT = 12; // photos/photo-01.* … photo-12.*
+
+  /* ---------- accepted image formats (tried in this order) ---------- */
+  var EXTS = ["jpg", "jpeg", "png"];
+  function baseOf(path) { return (path || "").replace(/\.(jpe?g|png)$/i, ""); }
+
+  // Probe a base path (no extension) against EXTS; cb(src) with the first that
+  // loads, or cb(null) if none exist.
+  function probeImage(base, cb) {
+    var idx = 0;
+    (function attempt() {
+      if (idx >= EXTS.length) { cb(null); return; }
+      var src = base + "." + EXTS[idx++];
+      var im = new Image();
+      im.onload = function () { cb(src); };
+      im.onerror = attempt;
+      im.src = src;
+    })();
+  }
 
   /* =========================================================
      Mobile nav
@@ -31,13 +49,18 @@
   }
 
   /* =========================================================
-     Image fallbacks — hide broken imgs so placeholders show
+     Image fallbacks — try .jpg/.jpeg/.png, then show placeholder
      ========================================================= */
   document.querySelectorAll("img[data-fallback]").forEach(function (img) {
-    var markMissing = function () { img.classList.add("is-missing"); };
-    img.addEventListener("error", markMissing);
-    // Already failed before this script ran, or empty/missing source:
-    if (img.complete && img.naturalWidth === 0) markMissing();
+    var base = baseOf(img.getAttribute("src"));
+    var idx = 0;
+    function tryNext() {
+      if (idx >= EXTS.length) { img.classList.add("is-missing"); return; }
+      img.src = base + "." + EXTS[idx++];
+    }
+    img.addEventListener("error", tryNext);
+    img.classList.remove("is-missing");
+    tryNext(); // drive from the first accepted extension
   });
 
   /* =========================================================
@@ -124,21 +147,17 @@
   if (grid) {
     for (var i = 1; i <= PHOTO_COUNT; i++) {
       (function (n) {
-        var src = "photos/photo-" + pad(n) + ".jpg";
+        var base = "photos/photo-" + pad(n);
         var btn = document.createElement("button");
         btn.className = "gallery__item is-empty";
         btn.type = "button";
         btn.setAttribute("aria-label", "Photo " + n);
 
-        var ph = document.createElement("span");
-        ph.className = "gallery__ph";
-        ph.textContent = "photo-" + pad(n) + ".jpg";
-        btn.appendChild(ph);
         grid.appendChild(btn);
 
-        // Probe: only swap in the <img> if the file loads.
-        var probe = new Image();
-        probe.onload = function () {
+        // Try .jpg/.jpeg/.png; only swap in the <img> if one loads.
+        probeImage(base, function (src) {
+          if (!src) return; // no file in any format — leave the placeholder
           btn.classList.remove("is-empty");
           btn.innerHTML = "";
           var img = document.createElement("img");
@@ -149,8 +168,7 @@
           var record = { src: src, alt: img.alt };
           photos.push(record);
           btn.addEventListener("click", function () { openLightbox(record); });
-        };
-        probe.src = src;
+        });
       })(i);
     }
   }
